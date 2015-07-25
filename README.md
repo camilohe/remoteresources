@@ -1,7 +1,7 @@
 # remoteresources
 a project to determine how many websites load remote resources for their homepages
 
-The blog entry related to this repository is This is a [One Million Websites](http://jacquesmattheij.com/one-million-websites).
+The blog entry related to this repository is at [One Million Websites](http://jacquesmattheij.com/one-million-websites).
 
 To run this code you'll need:
 
