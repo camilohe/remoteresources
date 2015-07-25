@@ -435,7 +435,7 @@ print_r($nresources);
 
 echo "domains using evercookies:\n";
 
-print_r($domains['evercookie']);
+print_r(@$domains['evercookie']);
 
 echo "messages:\n";
 
