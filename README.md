@@ -45,13 +45,13 @@ Here is the exact sequence of commands you need to execute to run the test from 
 
 (Tested on Ubuntu Linux)
 
-  git clone https://github.com/jacquesmattheij/remoteresources.git
-  cd remoteresources/
-  wget http://s3.amazonaws.com/alexa-static/top-1m.csv.zip
-  unzip top-1m.csv.zip 
-  php readall.php
-  wget http://winhelp2002.mvps.org/hosts.txt
-  php process.php
+    git clone https://github.com/jacquesmattheij/remoteresources.git
+    cd remoteresources/
+    wget http://s3.amazonaws.com/alexa-static/top-1m.csv.zip
+    unzip top-1m.csv.zip 
+    php readall.php
+    wget http://winhelp2002.mvps.org/hosts.txt
+    php process.php
 
 Things that affect the accuracy of the results produced:
 
