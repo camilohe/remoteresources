@@ -7,11 +7,11 @@ To run this code you'll need:
 
 - The Alexa top 1 million sites list, you can download it from:
 
-http://s3.amazonaws.com/alexa-static/top-1m.csv.zip
+    http://s3.amazonaws.com/alexa-static/top-1m.csv.zip
 
 - The advertisers hosts file, you can download this from:
 
-http://winhelp2002.mvps.org/hosts.txt
+    http://winhelp2002.mvps.org/hosts.txt
 
 - php
 
@@ -19,7 +19,7 @@ http://winhelp2002.mvps.org/hosts.txt
 
 - phantomjs
 
-http://phantomjs.org/
+    http://phantomjs.org/
 
 - A lot of free diskspace.
 
