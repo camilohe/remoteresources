@@ -57,11 +57,11 @@ class WorkerPool {
                                 }
                         }
 
+                        // start new workers when there are empty slots
+
                         if($this->pool[$i]===FALSE) {
                                 if (count($this->jobs) != 0) {
                                         $job = array_shift($this->jobs);
-
-                                        echo "new job $job\n";
 
                                         $this->pool[$i]['job'] = $job;
 
