@@ -7,6 +7,10 @@ To run this code you'll need:
 
 http://s3.amazonaws.com/alexa-static/top-1m.csv.zip
 
+- The advertisers hosts file, you can download this from:
+
+http://winhelp2002.mvps.org/hosts.txt
+
 - php
 
 - phantomjs
