@@ -225,7 +225,7 @@ assert(!same_domain("abc.com","//xyz.com/"));
 
 $hosts = [];
 
-$inputdir = "/home/jam/svn/data/top1M/requests/";
+$inputdir = "requests/";
 
 $stats = [];
 
