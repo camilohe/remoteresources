@@ -59,6 +59,7 @@ Things that affect the accuracy of the results produced:
 - the algorithm for the determination of whether or not a resource is external is imperfect
 - the number of domains you scan before you run the processor
 - the fact that the crawler only reads homepages and does not descend deeper into the websites 
+- the 'js detector' only looks at javascript loaded via separate urls, *not* for javascript embedded in the pages
  
 
 
