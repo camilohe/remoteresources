@@ -1,3 +1,5 @@
+<?php
+
 // Apply a function to every entry in a directory
 // this is *old* code, note that there are much better ways to do this nowadays
 // and that you should probably modernize this or replace it entirely. The only
