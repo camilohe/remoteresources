@@ -65,6 +65,21 @@ function strupto($s,$t) {
         return $s;
 }
 
+function load_ranking($f) {
+
+        $ranking = [];
+
+        $lines = explode("\n",file_get_contents($f));
+
+        foreach ($lines as $line) {
+                $parts = explode(",",$line);
+
+                $ranking[$parts[1]] = $parts[0];
+        }
+
+        return $ranking;
+}
+
 function load_keys($list) {
         $c = file_get_contents($list);
 
@@ -266,7 +281,7 @@ function process_domain($d) {
         global $messages;
         global $nresources;
 
-        echo("$d\n");
+        // echo("$d\n");
 
         $stats['n_domains']++;
 
@@ -363,7 +378,7 @@ function process_domain($d) {
 
                 foreach ($triggers as $trigger) {
                         if (contains($url,$trigger)) {
-                                $triggered[$trigger] = true;
+                                $triggered[$trigger] = $url;
                         }
                 }
 
@@ -403,7 +418,7 @@ function process_domain($d) {
         foreach ($triggers as $trigger) {
                 if ($triggered[$trigger]) {
                         $stats["n_domains_with_$trigger"] += 1;
-                        $domains[$trigger][] = $d;
+                        $domains[$trigger][$d] = $triggered[$trigger];
                 }
         }
 
@@ -421,6 +436,26 @@ function process_domain($d) {
         $stats['n_domains_with_ads'] += $has_ads ? 1 : 0;
 }
 
+function list_ec_domain($d, $url) {
+        echo "<tr>\n";
+        echo "<td><a href='http://$d/'>$d</a></td>\n";
+        echo "<td><a href='$url'>" . substr($url,0,20) . "...</a></td>\n";
+        echo "<td></td>\n";
+        echo "<td></td>\n";
+        echo "</tr>\n";
+}
+
+function ec_header() {
+  echo "<tr>\n";
+    echo "<th>Domain:</th>\n";
+    echo "<th>Evercookie Url:</th>\n";
+    echo "<th>Kind:</th>\n";
+    echo "<th>Comments:</th>\n";
+  echo "</tr>\n";
+}
+
+$ranking = load_ranking("top-1m.csv");
+
 dir_apply($inputdir,"process_domain");
 
 // show which hosts were found how many times
@@ -435,7 +470,27 @@ print_r($nresources);
 
 echo "domains using evercookies:\n";
 
-print_r(@$domains['evercookie']);
+echo "domains using evercookies directly:\n";
+
+echo("<table>\n");
+ec_header();
+foreach (@$domains['evercookie'] as $d => $url) {
+        if (contains($url,$d)) {
+                list_ec_domain($d,$url);
+        }
+}
+echo "</table>\n";
+
+echo "domains using evercookies indireclty:\n";
+
+echo("<table>\n");
+ec_header();
+foreach (@$domains['evercookie'] as $d => $url) {
+        if (!contains($url,$d)) {
+                list_ec_domain($d,$url);
+        }
+}
+echo "</table>\n";
 
 echo "messages:\n";
 
